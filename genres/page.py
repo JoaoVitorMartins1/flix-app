@@ -13,7 +13,6 @@ def show_genres():
         genres_df =json_normalize(genres)
         AgGrid(
             data=genres_df,
-            reload_data=True,
             key="genres_grid",
             enable_enterprise_modules=True,
         ),
@@ -25,8 +24,11 @@ def show_genres():
     st.title("Cadastrar novo genero")
     name = st.text_input("Nome do genero")
     if st.button("Cadastrar"):
-        new_genre= genre_service.create_genre(name=name,)
-        if new_genre:
+        new_genre = genre_service.create_genre(name=name)
+        st.write("RESPOSTA DA API:", new_genre)
+
+        if new_genre and "error" not in new_genre:
+            st.success("Gênero cadastrado com sucesso!")
             st.rerun()
         else:
             st.error("ERRO AO CADASTRAR, VERIFIQUE OS CAMPOS")

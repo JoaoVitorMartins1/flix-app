@@ -7,7 +7,7 @@ class GenreService:
         self.genre_repository=GenreRepository()
     
     def get_genres(self):
-        return self.genre_repository.get_genres
+        return self.genre_repository.get_genres()
     
     def create_genre(self,name):
         genre=dict(
