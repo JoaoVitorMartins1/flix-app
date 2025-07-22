@@ -4,7 +4,7 @@ from actors.page import show_actors
 from movies.page import show_movies
 from reviews.page import show_reviews
 from login.page import show_login
-
+from home.page import show_home
 
 
 
@@ -26,7 +26,7 @@ def main():
             ],
         )
         if menu_option == "Inicio":
-            st.write("anna clara")
+            show_home()
 
         if menu_option == "Generos":
             show_genres()
